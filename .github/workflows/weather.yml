@@ -32,5 +32,5 @@ jobs:
       - name: Set up Gradle properties
         uses: SimonMarquis/ci-gradle-properties-action@v1
         with:
-          path: gradle/gradle.properties
+          path: .gradle
 
