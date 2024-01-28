@@ -25,6 +25,7 @@ jobs:
         uses: actions/cache@v3
         with:
             path: ~/.gradlew
+            key: ${{ runner.os }}-gradlew-${{ hashFiles('**/*.gradlew*', '**/gradle-wrapper.properties') }}
               
       - name: Build With Gradle
         run: | 
