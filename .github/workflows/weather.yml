@@ -18,14 +18,16 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v2
         with:
-          distribution: 'temurin' # See 'Supported distributions' for available options
+          distribution: 'temurin'
           java-version: '11'
 
-      - name: Setup Gradle
+      - name: Download Gradle
         uses: actions/setup-java@v2
         with:
           java-version: '11'
-      
+          distribution: 'gradle'
+          distribution-version: '7.3.3'
+
       - name: Set up Gradle properties
         uses: SimonMarquis/ci-gradle-properties-action@v1
         with:
