@@ -21,8 +21,13 @@ jobs:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '11'
 
-      - name: Build With Gradle
-        run: ./gradle build
-        
-      - name: Run Tests
-        run: ./gradlew test  
+      - name: Setup Gradle
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+      
+      - name: Set up Gradle properties
+        uses: SimonMarquis/ci-gradle-properties-action@v1
+        with:
+          path: gradle/gradle.properties  
+
