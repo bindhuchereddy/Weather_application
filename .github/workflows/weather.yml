@@ -1,0 +1,26 @@
+name: Weather Application
+on: 
+    workflow_dispatch: 
+    push: 
+        branches: 
+          -main
+          -'feature/*'
+jobs:
+  Build-Deploy:
+    name: Build And Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+      - uses: actions/checkout@v4
+      
+      - name: Setup Java
+      - uses: actions/setup-java@v4
+        with:
+            java-version: '21'
+      - name: Build With Gradle
+        run: ./gradlew build
+      - name: Run Tests
+        run:  ./gradlew test
+
+          
+      
