@@ -22,7 +22,7 @@ jobs:
           java-version: '17'
 
       - name: Build With Gradle
-        run: ./gradlew build
+        run: cd gradle && ./gradlew build
           
       - name: Run Tests
         run: ./gradlew test
