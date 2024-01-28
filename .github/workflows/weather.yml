@@ -16,13 +16,13 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Setup Java
-      - uses: actions/setup-java@v4
+        uses: actions/setup-java@v2
         with:
           distribution: 'temurin' # See 'Supported distributions' for available options
-          java-version: '21'
+          java-version: '11'
 
       - name: Build With Gradle
         run: ./gradlew build
         
       - name: Run Tests
-        run: ./gradlew test     
+        run: ./gradlew test  
