@@ -20,8 +20,13 @@ jobs:
         with:
           distribution: 'adopt'
           java-version: '17'
-          cache: gradle
-
+          
+      - name: Cache Gradle packages
+        uses: actions/cache@v3
+        with:
+            path: |
+              ~/.gradle/caches
+              ~/.gradle/wrapper
       - name: Build With Gradle
         run: | 
              chmod +x gradlew
