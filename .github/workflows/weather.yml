@@ -21,15 +21,16 @@ jobs:
           distribution: 'temurin'
           java-version: '11'
 
-      - name: Download Gradle
-        uses: actions/setup-java@v2
+      - name: Download and cache Gradle
+        uses: actions/cache@v2
         with:
-          java-version: '11'
-          distribution: 'gradle'
-          distribution-version: '7.3.3'
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
 
       - name: Set up Gradle properties
         uses: SimonMarquis/ci-gradle-properties-action@v1
         with:
-          path: gradle/gradle.properties  
+          path: gradle/gradle.properties
 
