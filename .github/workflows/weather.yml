@@ -37,10 +37,18 @@ jobs:
       - name: Run Tests
         run: ./gradlew test
 
+      - name: Create Artifact Directory
+        run: mkdir -p artifacts
+      
+      - name: Create and Write to File
+        run: echo "This is some test-result xml." > artifacts/test-results.xml
+      
+      - name: List Files in Directory
+        run: ls -R artifacts  
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
           name: Test Results
-          run: touch test-result.xml 
-          path: test-result.xml 
+          path: test-results.xml 
 
